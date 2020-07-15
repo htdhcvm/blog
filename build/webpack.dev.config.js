@@ -8,7 +8,11 @@ const   webpack                     = require("webpack"),
 
 module.exports = {
     entry : {
-        main : "./src/js/main.js"
+        main : "./src/js/main.js",
+        signin : "./src/js/signin.js",
+        signup : "./src/js/signup.js",
+        post : "./src/js/post.js",
+        writePost : "./src/js/write-post.js"
     },
     output : {
         filename : "./assets/js/[name].js",
@@ -25,20 +29,28 @@ module.exports = {
                 ],
                 exclude : [
                     "/node_modules"
-                    // path.join(process.cwd(), "/src/server")
                 ]
 
-            },
-            {
-                test : /\.pug$/,
-                use : [
-                    "pug-loader?pretty=true" // pretty=true - set pretty true for standart display html layout 
-                    
-                ]
             }, 
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader'
+                loader: "file-loader",
+                options: {
+                    name : "[name].[ext]",
+                    outputPath: "assets/img",
+                }
+            },
+            {
+                test: /\.ttf$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'assets/font'
+                    }
+                  }
+                ]
             },
             {
                 test : /\.scss$/,
@@ -52,39 +64,10 @@ module.exports = {
         ]
     },
 
-    watchOptions: {
-        aggregateTimeout: 200,
-        poll: 1000
-    },
-
     plugins : [
-        new CleanWebpackPlugin(),
-
         new MiniCssExtractPlugin({
             filename : "./assets/css/[name].css"
-        }),
-        new CopyPlugin({
-            patterns : [
-                { from : "./src/img", to : "../../assets/img"}
-            ]
-        }),
-       
-        // todo 
-            new HtmlWebpackPlugin({
-                template : "src/pug/article.pug",
-                filename : "../../views/article.html",
-                inject : false
-            }),
-            new HtmlWebpackPlugin({
-                template : "src/pug/main.pug",
-                filename : "../../views/main.html",
-                inject : false
-            }),
-
-        // todo
+        })
       
-        // new webpack.SourceMapDevToolPlugin({
-        //     filename: __dirname + "/dist/[file].map"
-        //   }),
     ]
 }
