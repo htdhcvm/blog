@@ -1,0 +1,43 @@
+mixin formRight( type )
+    if (type == "signin")
+        section(class="signin")
+            div(class="container")
+                div(class="title")
+                    a(href="/")
+                        img(src="/img/logo-dark.png", alt="")
+                    h1 Sign in
+                    p We are Different, We Make You Different.
+                div(class="form")
+                    form 
+                        div(class="form-group")
+                            input(type="email", name="email" placeholder="Enter your email")
+                        div(class="form-group")
+                            input(type="password", name="password" placeholder="Enter your password")
+                        div(class="from-group")
+                            label
+                                input(type="checkbox", name="rememberme")
+                                span Remember me
+                            a Reset password
+                            button(class="btn-signin") Sign in 
+                div(class="description")
+                    p Don't have an account? 
+                        a(href="/signup") Sign up.
+    else 
+        section(class="signup")
+            div(class="container")
+                div(class="title")
+                    a(href="/") 
+                        img(src="/img/logo-dark.png", alt="")
+                    h1 Sign up
+                    p We are Different, We Make You Different.
+                div(class="form")
+                    form 
+                        div(class="form-group")
+                            input(type="email", name="email" placeholder="Enter your email")
+                        div(class="form-group")
+                            input(type="password", name="password" placeholder="Enter your password")
+                        div(class="from-group")
+                            button(class="btn-signup") Sign up
+                div(class="description")
+                    p Already have an account? 
+                        a(href="/signin") Sign in.

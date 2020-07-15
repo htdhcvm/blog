@@ -1,0 +1,20 @@
+extends ../layouts/basik.pug
+
+
+block main
+    section(class="write-post")
+        div(class="container")
+            a(href="/")
+                img(src="/img/logo-dark.png", alt="")
+            div(class="write-form")
+                h2 Pretend publication
+                div(class="form-group")
+                    select
+                        option 1 
+                div(class="form-group")
+                    input(type="text", name="" placeholder="Title")
+                div(class="form-group")
+                    textarea(name="" placeholder="Text publication")
+                div(class="form-group")
+                    input(type="file", name="" placeholder="Title")
+                button Send
