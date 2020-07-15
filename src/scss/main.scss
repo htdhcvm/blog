@@ -1,6 +1,47 @@
-body {
-    background-color: black;
-    h1 {
-        color: red;
+@import "utils/standart.scss";
+@import "utils/font.scss";
+@import "utils/extends.scss";
+@import "utils/navbar.scss";
+
+
+.main {
+    padding: 10px;
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        .item {
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            img {
+                @extend .img-responsive;
+            }
+            .content {
+                .title {
+                    font-family: "Playfair_DisplayRegular";
+                    font-size: 33px;
+                    line-height: 1.212em;
+                }
+                .description {
+                    margin-top: 13px;
+                    line-height: 1.647em;
+                    font-family: "DosisRegular";
+                }
+                .date {
+                    @extend .date;
+                }
+            }
+
+            .followPost {
+                span {
+                    font-family: "MontserratRegular";
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    line-height: 2em;
+                    letter-spacing: .2em;
+                }
+            }
+        }
     }
 }
