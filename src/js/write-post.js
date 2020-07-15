@@ -1,0 +1,9 @@
+import "../scss/write-post.scss";
+import "../static/favicon.png";
+import "../img/16.jpg";
+import "../font/Dosis/Dosis-Regular.ttf";
+import "../font/Montserrat/Montserrat-Regular.ttf";
+import "../font/Montserrat/Montserrat-Regular.ttf";
+import "../font/Montserrat/Montserrat-Thin.ttf";
+import "../font/Montserrat/Montserrat-Bold.ttf";
+import "../font/Playfair_Display/PlayfairDisplay-Regular.ttf";
