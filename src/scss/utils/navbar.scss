@@ -1,0 +1,43 @@
+nav {
+    .container{
+        padding: 20px 10px;
+        display: flex;
+        .navigateMenu {
+            display: flex;
+            align-items: center;
+            flex: 1 auto;
+            
+            .search {
+                flex: 1 auto;
+                margin: 0px 20px;
+
+                input {
+                    width: 100%;
+                    box-sizing: border-box;
+                    border-radius: 24px;
+                    border: none;
+                    outline: none;
+                    font-family: "MontserratRegular";
+                    font-size: 16px;
+                    height: 50px;
+                    padding: 0px 20px;
+                    background-color: #efefef;
+                }
+            }
+
+            .action {
+                .btn-signin {
+                    background-color: #e60423;
+                    color: white;
+                    margin-right: 10px;
+                    @extend .linkBtn-signin-signup;
+                }
+                .btn-signup {
+                    background-color: #efefef;
+                    color: black;
+                    @extend .linkBtn-signin-signup;
+                }
+            }
+        }
+    }
+}

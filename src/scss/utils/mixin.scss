@@ -1,0 +1,91 @@
+
+@mixin signin-signup( $type ) {
+    $container : "";
+    $btn : "";
+
+    @if ($type == "signin"){
+        $container : "signin";
+        $btn : "btn-signin";
+    }  @else {
+        $container : "signup";
+        $btn : "btn-signup";
+    }
+
+    .#{$container} {
+        .container {
+            max-width: 350px;
+            background-color: white;
+            margin: 0 auto;
+            border: 1px solid #E4E7EA;
+            border-radius: 0.25rem;
+            margin-top: 10%;
+            text-align: center;
+            padding: 40px;
+            h1 {
+                color: #495057;
+                font-family: "MontserratBold";
+                font-size: 2.5rem;
+                margin: 12px;
+            }
+    
+            p {
+                font-size: 0.875rem;
+                margin-bottom: 24px;
+            }
+            .form {
+                .form-group {
+                    margin-bottom: 16px;
+                  
+                    input[type="email"] {
+                        @extend .input-form-signin;
+                    }
+    
+                    input[type="password"] {
+                        @extend .input-form-signin;
+                    }
+                }
+                label {
+                    float: left;
+                    margin-bottom: 10px;
+                    color: #adb5bd;
+                    cursor: pointer;
+                    input {
+                        cursor: pointer;
+                        width: 26px;
+                        height: 14px;
+                    }
+                }
+    
+                a {
+                    float: right;
+                    margin-bottom: 10px;
+                    color: #665dfe;
+                    cursor: pointer;
+                }
+                .#{$btn} {
+                    @extend .btn-for-action-on-signin-signup;
+                }
+            }
+        }
+    }
+}
+
+
+@mixin btnPost-write( $sizeFont : 10, $color : #79a2ac ) {
+    font-size: $sizeFont;
+    line-height: 2em;
+    border: none;
+    padding: 15px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: $color;
+    background-color: #f7f7f2;
+    cursor: pointer;
+    border-radius: 0px;
+    outline: none;
+    &:hover{
+        color: #fff;
+        background-color: #3b4d55;
+    }
+}

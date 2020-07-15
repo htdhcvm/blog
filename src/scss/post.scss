@@ -1,0 +1,133 @@
+@import "utils/standart.scss";
+@import "utils/font.scss";
+@import "utils/extends.scss";
+@import "utils/navbar.scss";
+@import "utils/mixin.scss";
+
+.post {
+    .container {
+        padding: 10px;
+        width: 960px;
+        margin: 0 auto;
+        .content {
+            .main-img {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 100px;
+                max-height: 600px;
+            }
+        
+            .date {
+                @extend .date;
+            }
+            .title-post {
+                font-family: "Playfair_DisplayRegular";
+                color: #1c2522;
+                font-size: 40px;
+                line-height: 1.125em;
+            }
+
+            .text {
+                line-height: 1.647em;
+                color: #919a99;
+                font-family: "DosisRegular";
+                font-size: 17px;
+            }
+
+            .quotes {
+                font-size: 25px;
+                line-height: 1.31em;
+                font-family: "Playfair_Italic";
+                max-width: 600px;
+                text-align: center;
+                margin: 50px auto;
+            }
+        }
+
+        .hr {
+            margin: 40px 0px;
+        }
+
+        .author {
+            h3 {
+                font-size: 21px;
+                font-family: "MontserratRegular";
+            }
+           
+            .content{
+                h5 {
+                    margin-left: 20px;
+                    font-family: "Playfair_DisplayRegular";
+                    font-size: 19px;
+                    line-height: 1.368em;
+                }
+                display: flex;
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .comments {
+            .count-comments{
+                font-size: 21px;
+                font-family: "MontserratRegular";
+            }
+            img {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+            }
+            .item {
+                align-items: center;
+                margin: 20px 0px;
+                display: flex;
+            }
+
+            .content-comment{
+                margin-left: 20px;
+                h5 {
+                    margin: 0px;
+                    font-size: 16px;
+                    font-family: "Playfair_DisplayRegular";
+                }
+                p {
+                    line-height: 1.647em;
+                    color: #919a99;
+                    font-family: "DosisRegular";
+                    font-size: 14px;
+                    margin: 10px 0px 0px 0px;
+                }
+            }
+        }
+
+        .write-comments {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            .form-group{
+                margin-bottom: 20px;
+                input {
+                    @extend .input-comment-postWite;
+                }
+    
+                textarea {
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 200px;
+                    resize: none;
+                    border: 1px solid #ddd;
+                    color: #79a2ac;
+                    padding: 10px 15px;
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+    
+                button {
+                    @include btnPost-write();
+                }
+            }
+        }
+    }
+}

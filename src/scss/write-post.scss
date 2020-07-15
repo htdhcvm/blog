@@ -1,0 +1,49 @@
+@import "utils/standart.scss";
+@import "utils/font.scss";
+@import "utils/extends.scss";
+@import "utils/mixin.scss";
+
+.write-post {
+    .container {
+        margin: 0 auto;
+        width: 500px;
+        a {
+            display: block;
+            text-align: center;
+            margin: 40px 0px;
+        }
+
+        h2 {
+            font-family: "MontserratThin";
+        }
+        .write-form {
+            margin-top: 60px;
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            select {
+                @extend .input-comment-postWite;
+            }
+            input[type="text"] {
+                @extend .input-comment-postWite;
+            }
+    
+            textarea {
+                width: 100%;
+                box-sizing: border-box;
+                resize: none;
+                height: 400px;
+                border: 1px solid #ddd;
+                color: #79a2ac;
+                padding: 10px 15px;
+                font-size: 15px;
+                line-height: 24px;
+            }
+
+            button {
+                @include btnPost-write( 14px, black);
+            }
+        }
+    }
+}

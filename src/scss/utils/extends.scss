@@ -1,0 +1,58 @@
+.input-form-signin {
+    font-size: 0.875rem;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(1.6rem + 2px);
+    border-radius: 0.3rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    height: 43px;
+    padding-left: 10px;
+}
+
+.btn-for-action-on-signin-signup{
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+    outline: none;
+    font-family: "MontserratBold";
+    background-color: #665dfe;
+    border-color: #665dfe;
+    padding: 14px 0px 14px 0px;
+    cursor: pointer;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.linkBtn-signin-signup {
+    padding: 12px 8px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-family: "MontserratRegular";
+}
+
+.date {
+    font-family: "MontserratRegular";
+    font-size: 10px;
+    letter-spacing: .2em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.input-comment-postWite {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    color: #79a2ac;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 24px;
+    height: 40px;   
+}
