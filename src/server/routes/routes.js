@@ -1,9 +1,15 @@
 const express = require("express");
 const path = require("path");
+const passport = require("../Passport")
+
+
 const router = express.Router();
 
+router.post("/auth", passport.pass.authenticate('local',  {successRedirect: '/', failureRedirect: '/signup',  failureFlash: true})); 
 
 router.get("/", (req, res) => {
+    console.log(req.session.passport, req.isAuthenticated());
+
     res.render("pages/main", {
         connectionFiles : {
             js : [
@@ -38,7 +44,14 @@ router.get("/post", (req, res) => {
     })
 });
 
-router.get("/write-post", (req, res) => {
+function checkAuth(req, res, next){
+    if(req.isAuthenticated()) {
+        return next();
+    }
+    return res.redirect("/")
+}
+
+router.get("/write-post", checkAuth, (req, res) => {
     res.render("pages/write-post", {
         connectionFiles : {
             js : [
