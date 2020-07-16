@@ -8,7 +8,7 @@ mixin formRight( type )
                     h1 Sign in
                     p We are Different, We Make You Different.
                 div(class="form")
-                    form 
+                    form(action="/auth", method="post")
                         div(class="form-group")
                             input(type="email", name="email" placeholder="Enter your email")
                         div(class="form-group")
@@ -31,7 +31,7 @@ mixin formRight( type )
                     h1 Sign up
                     p We are Different, We Make You Different.
                 div(class="form")
-                    form 
+                    form(action="/registration", method="post")
                         div(class="form-group")
                             input(type="email", name="email" placeholder="Enter your email")
                         div(class="form-group")
