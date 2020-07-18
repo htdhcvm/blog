@@ -1,15 +1,39 @@
 const express = require("express");
 const path = require("path");
-const passport = require("../Passport")
-
+const passport = require("../configurationModules/Passport");
+require('dotenv').config();
 
 const router = express.Router();
 
-router.post("/auth", passport.pass.authenticate('local',  {successRedirect: '/', failureRedirect: '/signup',  failureFlash: true})); 
+router.get("/search", (req, res) => {
+    res.render("pages/search");
+});
+
+router.get("/settings", (req, res) => {
+    res.render("pages/settings");
+});
+
+router.get("/chat", (req, res) => {
+    res.render("pages/chat");
+});
+
+
+router.post("/auth", passport.pass.authenticate("local-signin",  {successRedirect: '/', failureRedirect: "/signin",  failureFlash: true})); 
+
+router.post("/registration", passport.pass.authenticate("local-signup", {successRedirect: '/', failureRedirect: "/signup",  failureFlash: true}));
 
 router.get("/", (req, res) => {
-    console.log(req.session.passport, req.isAuthenticated());
-
+    let authData = {};
+    if(req.isAuthenticated()) {
+        authData = {
+            status : true,
+            name : req.session.passport.user
+        }
+    } else {
+        authData = {
+            status : false
+        }
+    }
     res.render("pages/main", {
         connectionFiles : {
             js : [
@@ -22,7 +46,8 @@ router.get("/", (req, res) => {
         },
         data : {
             title : "Flouheforst",
-            templateToLoad : path.join( process.cwd(), "views/layout/basik.pug" )
+            templateToLoad : path.join( process.cwd(), "views/layout/basik.pug" ),
+            auth : authData
         }
     })
 });
@@ -44,14 +69,14 @@ router.get("/post", (req, res) => {
     })
 });
 
-function checkAuth(req, res, next){
-    if(req.isAuthenticated()) {
-        return next();
-    }
-    return res.redirect("/")
-}
+// function checkAuth(req, res, next){
+//     if(req.isAuthenticated()) {
+//         return next();
+//     }
+//     return res.redirect("/")
+// }
 
-router.get("/write-post", checkAuth, (req, res) => {
+router.get("/write-post", (req, res) => {
     res.render("pages/write-post", {
         connectionFiles : {
             js : [
@@ -68,13 +93,12 @@ router.get("/write-post", checkAuth, (req, res) => {
     })
 });
 
-router.get("/search", (req, res) => {
-    res.render("pages/search")
-});
 
-router.get("/settings", (req, res) => {
-    res.render("pages/settings")
-});
+
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/")
+})
 
 router.get("/signin", (req, res) => {
     res.render("pages/signin", {
@@ -88,7 +112,8 @@ router.get("/signin", (req, res) => {
             ]
         },
         data : {
-            title : "Flouheforst | SignIn"
+            title : "Flouheforst | SignIn",
+            errors : req.flash("error")[0]
         }
     })
 });
@@ -105,7 +130,8 @@ router.get("/signup", (req, res) => {
             ]
         },
         data : {
-            title : "Flouheforst | SignUp"
+            title : "Flouheforst | SignUp",
+            errors : req.flash("error")[0]
         }
     })
 });
