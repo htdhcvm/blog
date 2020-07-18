@@ -66,6 +66,9 @@
                     @extend .btn-for-action-on-signin-signup;
                 }
             }
+            .error {
+                color: red;
+            }
         }
     }
 }

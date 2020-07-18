@@ -22,6 +22,7 @@ mixin formRight( type )
                 div(class="description")
                     p Don't have an account? 
                         a(href="/signup") Sign up.
+                div(class="error")=data.errors
     else 
         section(class="signup")
             div(class="container")
@@ -41,3 +42,4 @@ mixin formRight( type )
                 div(class="description")
                     p Already have an account? 
                         a(href="/signin") Sign in.
+                div(class="error")=data.errors

@@ -26,6 +26,40 @@ nav {
             }
 
             .action {
+                    .dropbtn {
+                        font-family: "MontserratRegular";
+                        color: black;
+                        padding: 16px;
+                        font-size: 16px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: transparent;
+                        outline: none;
+
+                    }
+
+                   
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        right: 20px;
+                        width: 150px;
+                        text-align: right;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        a {
+                            text-decoration: none;
+                            color: black;
+                            font-family: "MontserratRegular";
+                            font-size: 12px;
+                            padding: 14px;
+                            background-color: #f1f1f1;
+                            &:hover {background-color: #ddd;}
+                        }
+                    }
+                    .dropdown:hover  .dropdown-content{
+                        display: grid;
+                    }
+           
                 .btn-signin {
                     background-color: #e60423;
                     color: white;

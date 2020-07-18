@@ -6,5 +6,14 @@ nav
             div(class="search")
                 input(type="text", name="" placeholder="Search")
             div(class="action")
-                a(class="btn-signin" href="/signin") Sign in
-                a(class="btn-signup" href="/signup") Sign up
+                if data.auth.status
+                    div(class="dropdown")
+                        button(class="dropbtn")=data.auth.name
+                        div(class="dropdown-content")
+                            a(href="/settings") Settings
+                            a(href="/write-post") Write post
+                            a(href="/chat") Chat
+                            a(href="/logout") Logout
+                else 
+                    a(class="btn-signin" href="/signin") Sign in
+                    a(class="btn-signup" href="/signup") Sign up
