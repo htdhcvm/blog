@@ -1,4 +1,5 @@
 extends ../layouts/basik.pug
+include ../mixin/post.pug
 
 block header 
     include ../includes/header.pug
@@ -6,11 +7,5 @@ block header
 block main
     section(class="main")
         div(class="wrapper")
-            a(class="item" href="/post")
-                img(src="/img/1.jpg", alt="")
-                div(class="content")
-                    h2(class="title") High up in the Mountains of Norway
-                    p(class="description") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet, urna at eleifend cursus, nibh libero ullamcorper sapien, in dignissim erat e
-                    span(class="date") Mar 27, 2020 Island
-                div(class="followPost")
-                    span Discover
+            for post in data.post
+                +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name )

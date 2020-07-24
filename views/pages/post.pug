@@ -7,44 +7,17 @@ block main
     section(class="post")
         div(class="container") 
             div(class="content")
-                img(class="main-img" src="/img/5.jpg", alt="")
-                span(class="date") MAR 27, 2020 ISLAND
-                h1(class="title-post") High up in the Mountains of Norway
-                div(class="text")
-                    | Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    | Excepteur sint occaecat cupidatat non proident. Quisque id enim malesuada metus porta sollicitudin id eget orci. 
-                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                div(class="quotes")
-                    | North Atlantic island sit dolor inspiration for life is a pseudo Latin text used in web design, typography.
-                div(class="text")
-                    | Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    | Excepteur sint occaecat cupidatat non proident. Quisque id enim malesuada metus porta sollicitudin id eget orci. 
-                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    | Excepteur sint occaecat cupidatat non proident. Quisque id enim malesuada metus porta sollicitudin id eget orci. 
-                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    | Excepteur sint occaecat cupidatat non proident. Quisque id enim malesuada metus porta sollicitudin id eget orci. 
-                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    | Excepteur sint occaecat cupidatat non proident. Quisque id enim malesuada metus porta sollicitudin id eget orci. 
-                    | Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                img(class="main-img" src=data.postData.photo, alt="")
+                span(class="date")=data.postData.dateCreate
+                h1(class="title-post")=data.postData.title
+                div(class="text")=data.postData.description
                 hr(class="hr")
                 div(class="author")
                     h3 Author 
                     div(class="content")
                         img(src="/img/1.jpg", alt="")
-                        h5 John
-                            span Mar 27, 2020
+                        h5=data.postData.login 
+                            span=data.postData.dateRegistration
                 hr(class="hr")
             div(class="write-comments")
                 div(class="form-group")

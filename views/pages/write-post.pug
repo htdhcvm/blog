@@ -1,20 +1,22 @@
 extends ../layouts/basik.pug
 
-
 block main
     section(class="write-post")
         div(class="container")
             a(href="/")
                 img(src="/img/logo-dark.png", alt="")
             div(class="write-form")
+                div(class="error" id="error")
+                div(class="success" id="success")
                 h2 Pretend publication
                 div(class="form-group")
-                    select
-                        option 1 
+                    select(id="category")
+                        for category in data.categoryes
+                            option(data-id=category.id)=category.name
                 div(class="form-group")
-                    input(type="text", name="" placeholder="Title")
+                    input(type="text", name="" placeholder="Title" id="title")
                 div(class="form-group")
-                    textarea(name="" placeholder="Text publication")
+                    textarea(name="" placeholder="Text publication" id="text")
                 div(class="form-group")
-                    input(type="file", name="" placeholder="Title")
-                button Send
+                    input(type="file", name="" id="file")
+                button(id="send-post") Send
