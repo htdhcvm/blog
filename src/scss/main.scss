@@ -14,6 +14,7 @@
             cursor: pointer;
             text-decoration: none;
             color: black;
+            margin-bottom: 60px;
             img {
                 @extend .img-responsive;
             }
@@ -22,15 +23,39 @@
                     font-family: "Playfair_DisplayRegular";
                     font-size: 33px;
                     line-height: 1.212em;
+                    display: inline-block; 
+                    word-wrap: break-word; 
+                    width: 10rem;
                 }
+                
+                .data-about-post {
+                    text-decoration: none;
+                    color: black;
+                }
+
                 .description {
                     margin-top: 13px;
-                    line-height: 1.647em;
+                    line-height: 1.5em;
                     font-family: "DosisRegular";
+                    height: 45px;
+                    overflow: hidden;
+                    width: 10rem;
+                    word-wrap: break-word;
+
                 }
                 .date {
                     @extend .date;
                 }
+                .author{
+                    font-family: "DosisRegular";
+                    line-height: 1.647em;
+                }
+                .category{
+                    font-family: "DosisRegular";
+                    line-height: 1.647em;
+                }
+
+                
             }
 
             .followPost {

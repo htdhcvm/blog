@@ -44,6 +44,26 @@
             button {
                 @include btnPost-write( 14px, black);
             }
+
+            .error {
+                color: red;
+                font-family: "MontserratRegular";
+                font-size: 14px;
+                text-align: center;
+                margin-top: 40px;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+            .success {
+                color: green;
+                font-weight: 600;
+                font-family: "MontserratRegular";
+                font-size: 14px;
+                text-align: center;
+                margin-top: 40px;
+                letter-spacing: 0.06em;
+            }
+            
         }
     }
 }
