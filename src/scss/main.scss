@@ -1,72 +1,11 @@
 @import "utils/standart.scss";
 @import "utils/font.scss";
 @import "utils/extends.scss";
+@import "utils/postExtend.scss";
 @import "utils/navbar.scss";
 
 
 .main {
     padding: 10px;
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
-        .item {
-            cursor: pointer;
-            text-decoration: none;
-            color: black;
-            margin-bottom: 60px;
-            img {
-                @extend .img-responsive;
-            }
-            .content {
-                .title {
-                    font-family: "Playfair_DisplayRegular";
-                    font-size: 33px;
-                    line-height: 1.212em;
-                    display: inline-block; 
-                    word-wrap: break-word; 
-                    width: 10rem;
-                }
-                
-                .data-about-post {
-                    text-decoration: none;
-                    color: black;
-                }
-
-                .description {
-                    margin-top: 13px;
-                    line-height: 1.5em;
-                    font-family: "DosisRegular";
-                    height: 45px;
-                    overflow: hidden;
-                    width: 10rem;
-                    word-wrap: break-word;
-
-                }
-                .date {
-                    @extend .date;
-                }
-                .author{
-                    font-family: "DosisRegular";
-                    line-height: 1.647em;
-                }
-                .category{
-                    font-family: "DosisRegular";
-                    line-height: 1.647em;
-                }
-
-                
-            }
-
-            .followPost {
-                span {
-                    font-family: "MontserratRegular";
-                    text-transform: uppercase;
-                    font-size: 10px;
-                    line-height: 2em;
-                    letter-spacing: .2em;
-                }
-            }
-        }
-    }
+    @extend .wrapper-post;
 }

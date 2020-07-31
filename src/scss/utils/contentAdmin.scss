@@ -1,0 +1,104 @@
+@import "mixin.scss";
+
+@mixin content( $type ) {
+    @if ($type == "content") {
+        .content {
+            grid-area: content;
+            word-break: break-all;
+
+            .category {
+                margin: 40px;
+                form {
+                    display: flex;
+                    input {
+                        height: 35px;
+                        padding-left: 10px;
+                        flex: 1 auto;
+                    }
+
+                    button {
+                        background-color: #039be5;
+                        padding: 0px 40px;
+                        border: none;
+                        color: white;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+                        cursor: pointer;
+                        margin-left: 20px;
+                        outline: none;
+                    }
+                }
+
+                .list-category {
+                    margin-top: 20px;
+                    display: grid;
+                    grid-template-columns: repeat(8, 1fr);
+                    grid-gap: 20px;
+                    .item {
+                        border: 1px solid #2b303c;
+                        padding: 5px 10px;
+                        position: relative;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #2d323e;
+                            color: #2d323e;
+                            &::before {
+                                content: "x";
+                                color: white;
+                                position: absolute;
+                                margin-left: auto;
+                                margin-right: auto;
+                                top: 15%;
+                                left: 43%;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+
+
+            .posts {
+                padding: 40px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 20px;
+                .add {
+                    @include btn(5px, 20px, #039be5);
+                }
+
+                .delete {
+                    @include btn(5px, 20px, red);
+             
+                }
+
+                img{
+                    background-size: cover;
+                    width: 100%;
+                }
+            }
+        }
+    } @else if ($type == "content-hide") {
+        .content {
+            grid-area: content;
+            word-break: break-all;
+
+            .posts {
+                padding: 40px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-gap: 20px;
+                .add {
+                    @include btn(0px, 40px, #039be5);
+                }
+                img{
+                    background-size: cover;
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}
+

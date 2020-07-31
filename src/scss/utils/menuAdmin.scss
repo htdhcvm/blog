@@ -1,0 +1,128 @@
+@mixin menu( $type ) {
+    @if ($type == "menu") {
+        .menu {
+            grid-area: menu;
+            min-width: 280px;
+            max-width: 280px;
+            min-height: 100%;
+            background: linear-gradient(transparent 30%, transparent 0), linear-gradient(rgba(0, 0, 0, 0.25), transparent 40%);
+            background-color: #2d323e;
+            .header-menu {
+                background-color: #1e2129;
+                display: flex;
+                flex-flow: column;
+                padding-bottom: 20px;
+                align-items: center;
+                .toggle-menu {
+                    margin-left: auto;
+                    padding: 20px;
+                    cursor: pointer;
+                }
+                .logo {
+                    padding: 20px 0px;
+                }
+                .login {
+                    color: white;
+                    font-family: "MontserratThin";
+                    padding-bottom: 60px;
+                }
+                .admin-photo {
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 72px;
+                    height: 72px;
+                    top: 195px;
+                    background-color: #2d323e;
+                    padding: 10px;
+                }
+            }
+        
+            .list-menu {
+                margin-top: 60px;
+                    ul {
+                        line-height: 10px;
+                        li {
+                            img {
+                                width: 18px;
+                                height: 18px;
+                                margin-right: 10px;
+                            }
+                            a {
+                                padding: 20px;
+                                color: white;
+                                box-sizing: border-box;
+                                width: 100%;
+                                display: block;
+                                &:hover {
+                                    background-color: #2b303c;
+                                }
+                            }
+                        }
+                    }
+            }
+        }
+        
+    } @else if ($type == "menu-hide") {
+        .menu {
+            grid-area: menu;
+            min-width: 70px;
+            max-width: 70px;
+            min-height: 100%;
+            background: linear-gradient(transparent 30%, transparent 0), linear-gradient(rgba(0, 0, 0, 0.25), transparent 40%);
+            background-color: #2d323e;
+            .header-menu {
+                background-color: #1e2129;
+                display: flex;
+                flex-flow: column;
+                padding-bottom: 20px;
+                align-items: center;
+                .toggle-menu {
+                    margin: auto;
+                    padding: 20px;
+                    cursor: pointer;
+                }
+                .logo {
+                    display: none;
+                }
+                .login {
+                    display: none;
+                }
+                .admin-photo {
+                    border-radius: 50%;
+                    width: 45px;
+                    height: 45px;
+                    margin: 10px 0px;
+                }
+            }
+        
+            .list-menu {
+                margin-top: 30px;
+                    ul {
+                        line-height: 10px;
+                        li {
+                            img {
+                                width: 18px;
+                                height: 18px;
+                            }
+                            a {
+                                padding: 20px;
+                                color: white;
+                                box-sizing: border-box;
+                                width: 100%;
+                                display: block;
+                                text-align: center;
+                                &:hover {
+                                    background-color: #2b303c;
+                                }
+        
+                                span {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}
+

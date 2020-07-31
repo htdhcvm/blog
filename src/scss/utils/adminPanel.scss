@@ -1,0 +1,37 @@
+@import "./headerAdmin.scss";
+
+@import "./menuAdmin.scss";
+
+@import "./contentAdmin.scss";
+
+
+
+.admin {
+    display: grid;
+    grid-template-areas: 
+        "menu header"
+        "menu content";
+    height: 100%;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 70px 1fr;
+    font-family: "MontserratRegular";
+
+    @include menu("menu");
+    @include content("content");
+    @include header("header");
+}
+
+.hide-menu {
+    display: grid;
+    grid-template-areas: 
+        "menu header"
+        "menu content";
+    height: 100%;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 70px 1fr;
+    font-family: "MontserratRegular";
+
+    @include menu("menu-hide");
+    @include content("content-hide");
+    @include header("header-hide");
+}
