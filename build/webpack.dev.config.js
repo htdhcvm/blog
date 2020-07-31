@@ -12,7 +12,12 @@ module.exports = {
         signin : "./src/js/signin.js",
         signup : "./src/js/signup.js",
         post : "./src/js/post.js",
-        writePost : "./src/js/write-post.js"
+        writePost : "./src/js/write-post.js",
+        admin : "./src/js/admin.js",
+        adminCategory : "./src/js/adminCategory.js",
+        settings : "./src/js/settings.js",
+        userPage : "./src/js/userPage.js",
+        adminPost : "./src/js/adminPost.js"
     },
     output : {
         filename : "./assets/js/[name].js",
@@ -41,7 +46,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.ttf$/,
+                test: /\.(ttf|woff|eot)$/,
                 use: [
                   {
                     loader: 'file-loader',
@@ -60,7 +65,10 @@ module.exports = {
                     "css-loader",
                     "sass-loader",
                 ]
-            }
+            },
+       
+
+
         ]
     },
 
