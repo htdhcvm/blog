@@ -1,0 +1,14 @@
+section(class="content")
+    if(data.typeData == "posts") 
+        section(class=data.typeData)
+                for post in data.posts 
+                    +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name, "admin", post.status )
+    if(data.typeData == "category")
+        div(class="category")
+            form
+                input(type="text" placeholder="Category name" id="category-name")
+                button(id="send-category") Add
+            div(class="list-category" id="list-category")
+                for category in data.categories
+                    div(class="item" data-id=category.id)=category.name
+    if(data.typeData == "dashboard")

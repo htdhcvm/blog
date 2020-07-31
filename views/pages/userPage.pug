@@ -1,0 +1,14 @@
+extends ../layouts/basik.pug
+include ../mixin/post.pug
+
+block header
+    =data.user.login
+    br
+    =data.user.photo
+    br
+    =data.user.dateRegistration
+
+block main
+    div(class="wrapper-post")
+        for post in data.posts
+            +post( post.hash, post.photo, post.title, post.description, post.dateCreate, null, null, "user" )

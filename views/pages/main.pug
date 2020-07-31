@@ -6,6 +6,5 @@ block header
 
 block main
     section(class="main")
-        div(class="wrapper")
-            for post in data.post
-                +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name )
+        for post in data.post
+            +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name, "user" )

@@ -1,14 +1,38 @@
-mixin formRight( type )
+mixin formRight( type, title )
     if (type == "signin")
         section(class="signin")
             div(class="container")
                 div(class="title")
                     a(href="/")
                         img(src="/img/logo-dark.png", alt="")
-                    h1 Sign in
+                    h1=title
                     p We are Different, We Make You Different.
                 div(class="form")
                     form(action="/auth", method="post")
+                        div(class="form-group")
+                            input(type="email", name="email" placeholder="Enter your email")
+                        div(class="form-group")
+                            input(type="password", name="password" placeholder="Enter your password")
+                        div(class="from-group")
+                            label
+                                input(type="checkbox", name="rememberme")
+                                span Remember me
+                            a Reset password
+                            button(class="btn-signin") Sign in 
+                div(class="description")
+                    p Don't have an account? 
+                        a(href="/signup") Sign up.
+                div(class="error")=data.errors
+    else if (type == "admin")
+        section(class="signin")
+            div(class="container")
+                div(class="title")
+                    a(href="/")
+                        img(src="/img/logo-dark.png", alt="")
+                    h1=title
+                    p We are Different, We Make You Different.
+                div(class="form")
+                    form(action="/auth-admin", method="post")
                         div(class="form-group")
                             input(type="email", name="email" placeholder="Enter your email")
                         div(class="form-group")

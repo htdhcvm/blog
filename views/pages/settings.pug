@@ -1,0 +1,98 @@
+include ../mixin/post.pug
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include ../includes/head.pug
+    body
+        section(class="settings")
+            div(class="menu")
+                div(class="header")
+                    a(href="/")
+                        img(id="toggle-menu" src="/img/logo-light.png")
+                    br
+                    img(src="/img/unknownUser.png")
+                    br
+                    span Welcome, #{data.dataUser.login}
+                div(class="contaniner")
+                    ul(class="list-menu-item" id="menu-items") 
+                        li(data-item="dashboard") Dashboard
+                        li(data-item="list-posts") List posts
+            div(class="content")
+                div(class="container")
+                    div(class="dashboard content-item" id="dashboard" data-content="dashboard")
+                        h2 Your personal profile info
+                        div(class="wrapper")
+                            div(class="profile")
+                                form
+                                    h3
+                                        span 1
+                                        | Profile
+                                    div(class="form-group")
+                                        label(for="fio") FIO
+                                        input( id="fio" class="typical-input" type="text" name="fio" placeholder="Khokhlov Khariton Oskarovich")
+                                    div(class="form-group")
+                                        label(for="date-birthday") Date birthday
+                                        input( id="date-birthday" class="typical-input" type="date" name="date-birthday")
+                                    div(class="form-group")
+                                        label(for="date-birthday") Address
+                                        input( id="address" class="typical-input" type="text" name="address" placeholder="Kingston, New York 12401: United States")
+                                    div(class="form-group")
+                                        label(for="date-birthday") E-mail
+                                        input( class="typical-input" type="text" name="email" placeholder=data.dataUser.login disabled)
+                                    div(class="form-group phone")
+                                        label(for="date-birthday") Telephone
+                                        div(class="wrap")
+                                            select(id="country-code")
+                                                option +93
+                                                option +355
+                                                option +21 
+                                                option +684
+                                                option +376 
+                                                option +244
+                                                option +1-268
+                                                option +374
+                                                option +54
+                                                option +61
+                                                option +43
+                                                option +994
+                                                option +1-242
+                                                option +973
+                                                option +880
+                                                option +1-246
+                                                option +375
+                                                option +7
+                                                option 8
+                                            input(type="number" id="number-phone" placeholder="9202506644")
+                                    button(id="update") Update
+                                    div(class="err" id="errMsg")
+                                    div(class="success" id="msg")
+                            div(class="password")
+                                form
+                                    h3 
+                                        span 2
+                                        | Password
+                                    div(class="form-group")
+                                        label Old password
+                                        input(class="typical-input" type="password", name="" id="old-password")
+                                    div(class="form-group")
+                                        label New password
+                                        input(class="typical-input" type="password", name="" id="new-password")
+                                    div(class="form-group")
+                                        label Confirm new password
+                                        input(class="typical-input" type="password", name="" id="confirm-new-password")
+                                    button(id="change") Change
+                                    div(class="err" id="errMsg")
+                                    div(class="success" id="msg")
+                    div(class="list-post hide content-item" id="list-posts" data-content="list-posts")
+                        div(class="wrapper-post")
+                            h3(class="title-post") Not approved posts
+                            for post in data.listPost 
+                                if post.status == 0
+                                    +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name, "user" )
+                        div(class="wrapper-post")
+                            h3(class="title-post") Approved posts 
+                            for post in data.listPost 
+                                if post.status == 1
+                                    +post( post.hash, post.photo, post.title, post.description, post.dateCreate, post.login, post.name, "user" )
+        include ../includes/footer.pug

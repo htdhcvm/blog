@@ -1,17 +1,32 @@
-mixin post( hash, photo, title, description, dateCreate, login, name )
-    div
-        a(class="item" href=`/post/hash=${hash}`)
-            img(src=photo, alt="")
-            div(class="content")
-                span(class="title")=title
-                p(class="description")=description
-                a(href="/awd" class="data-about-post") 
+mixin post( hash, photo, title, description, dateCreate, login, name, type, status )
+    if( type == "user")
+        div
+            a(class="item" href=`/post/hash=${hash}`)
+                img(src=photo, alt="")
+                div(class="content")
+                    span(class="title")=title
+                    p(class="description")=description
+                    a(class="data-about-post") 
+                        span(class="date")=dateCreate
+                    <br>
+                    a(href=`/user/${login}` class="data-about-post")
+                        span(class="author")=login
+                    <br>
+                    a(href="/awd" class="data-about-post")
+                        span(class="category")=name
+                div(class="followPost")
+                    span Discover
+    else if (type == "admin")
+        div
+            a(class="item" href=`/admin/post/hash=${hash}`)
+                img(src=photo, alt="")
+                div(class="content")
+                    span(class="title")=title
+                    p(class="description")=description
                     span(class="date")=dateCreate
-                <br>
-                a(href="/awd" class="data-about-post")
-                    span(class="author")=login
-                <br>
-                a(href="/awd" class="data-about-post")
-                    span(class="category")=name
-            div(class="followPost")
-                span Discover
+                    br
+                    br
+                    if(status == 0)
+                        a(class="add" id="change-status" data-status=status data-hash=hash) add
+                    else 
+                        a(class="delete" id="change-status" data-status=status data-hash=hash) delete

@@ -1,4 +1,5 @@
 extends ../layouts/basik.pug
+include ../mixin/comment.pug
 
 block header
     include ../includes/header.pug
@@ -7,44 +8,29 @@ block main
     section(class="post")
         div(class="container") 
             div(class="content")
-                img(class="main-img" src=data.postData.photo, alt="")
-                span(class="date")=data.postData.dateCreate
-                h1(class="title-post")=data.postData.title
-                div(class="text")=data.postData.description
+                img(class="main-img" src=data.postData.postD.photo, alt="")
+                span(class="date")=data.postData.postD.dateCreate
+                h1(class="title-post")=data.postData.postD.title
+                div(class="text")=data.postData.postD.description
                 hr(class="hr")
                 div(class="author")
                     h3 Author 
                     div(class="content")
-                        img(src="/img/1.jpg", alt="")
+                        //- img(src="/img/1.jpg", alt="")
                         h5=data.postData.login 
-                            span=data.postData.dateRegistration
+                            span=data.postData.postD.dateRegistration
                 hr(class="hr")
             div(class="write-comments")
                 div(class="form-group")
-                    input(type="text", name="" placeholder="Name")
-                div(class="form-group")
-                    textarea(placeholder="Text")
-                div(class="form-group")
-                    button Post comment
+                    textarea(placeholder="Text" id="text")
+                div(class="form-group" )
+                    button(id="send-comment" data-postHash=data.postData.postD.hash) Post comment
             div(class="comments")
                 h4(class="count-comments") 2 Comments
-                div(class="item")
-                    img(src="/img/1.jpg", alt="")
-                    div(class="content-comment")
-                        h5 Joly 
-                            span(class="date") Mar 27, 2020
-                        p 
-                            | Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            | Quasi natus, molestias et exercitationem reiciendis facere beatae.
-                            | Reprehenderit tempora exercitationem architecto nihil dicta harum.
-                            | Nam nostrum amet accusantium minus. Esse, quidem.
-                            | Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            | Quasi natus, molestias et exercitationem reiciendis facere beatae.
-                            | Reprehenderit tempora exercitationem architecto nihil dicta harum.
-                            | Nam nostrum amet accusantium minus. Esse, quidem.
-                div(class="item")
-                    img(src="/img/1.jpg", alt="")
-                    div(class="content-comment")
-                        h5 Joly 
-                            span(class="date") Mar 27, 2020
-                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi natus
+                for comment in data.postData.commet
+                    div(class="item")
+                        div(class="content-comment")
+                            h5=comment.login
+                                span(class="date")=comment.date
+                            p=comment.text
+                

@@ -1,0 +1,25 @@
+section(class="menu")
+    div(class="container")
+        div(class="header-menu")
+            img( class="toggle-menu" id="toggle-menu" src="/img/menu-white.png")
+            img( class="logo" src="/img/logo-light.png")
+            h4(class="login")=data.admin.login
+            img( class="admin-photo" src=data.admin.photo class="img-responsive")
+        div(class="list-menu")
+            ul
+                li
+                    a(href="/admin") 
+                        img( src="/img/dashboard.png")
+                        span Dashboard 
+                li
+                    a(href="/admin/post")
+                        img( src="/img/post.png")
+                        span Posts
+                li
+                    a(href="/admin/category") 
+                        img( src="/img/category.png")
+                        span Category
+                li
+                    a(href="/logout") 
+                        img( src="/img/logout.png")
+                        span Logout

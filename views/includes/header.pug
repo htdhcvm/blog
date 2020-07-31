@@ -10,7 +10,7 @@ nav
                     div(class="dropdown")
                         button(class="dropbtn")=data.auth.name
                         div(class="dropdown-content")
-                            a(href="/settings") Settings
+                            a(href=`/settings/${data.auth.name}`) Settings
                             a(href="/write-post") Write post
                             a(href="/chat") Chat
                             a(href="/logout") Logout
