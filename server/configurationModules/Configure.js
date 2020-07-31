@@ -14,7 +14,8 @@ class Configure {
         app.use("/css", express.static(process.cwd() + "/public/assets/css"));
         app.use("/img", express.static(process.cwd() + "/public/assets/img"));
         app.use("/font", express.static(process.cwd() + "/public/assets/font"));
-
+        
+        app.use(bodyParser.json({ type: "application/json" }));
         app.use(bodyParser.urlencoded({ extended : false }));
 
         app.use(session({ 
