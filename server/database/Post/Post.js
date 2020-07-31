@@ -39,7 +39,7 @@ class Post{
 
     getAllPost() {
         return new Promise( (resolve, reject) => {
-            connection.query("select id, title, description, photo, dateCreate from post", (err, result) => {
+            connection.query("select id, title, description, photo, dateCreate, hash, status from post", (err, result) => {
                 if (err) return reject(err);
                 return resolve(result);
             })
@@ -57,6 +57,44 @@ class Post{
                                 if(err) return reject(err);
                                 return resolve(post[0])
                             })
+        })
+    }
+
+    changeStatus(status, hash) {
+        status = ( status == 0 ) ? 1 : 0;
+        return new Promise( (resolve, reject) => {
+            connection.query(`
+                                update post set status = ? where hash = ?;
+                            `,[status, hash], (err, post) => {
+                                if(err) return reject(err);
+                                return resolve(post[0])
+                            })
+        })
+    }
+
+
+    getPostOnHash(hash) {
+        return new Promise( (resolve, reject) => {
+            connection.query("select id from post", (err, ids) => {
+                resolve(ids);
+            })
+        }).then( ids => {
+            let needId = "";
+    
+            ids.forEach( idD => {
+                if( md5(idD.id) == hash ) needId += idD.id;
+            })
+    
+            return needId;
+        }).then( needPostId => {
+            return new Promise( (resolve, reject) => {
+                connection.query(`
+                                select * from post where id = ?
+                            `, [needPostId], (err, post) => {
+                                if(err) return reject(err);
+                                return resolve(post[0])
+                            })
+                });
         })
     }
 }

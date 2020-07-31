@@ -19,7 +19,6 @@ event.on("addPostEvent", (obj) => {
 
     post.addPost(obj.data)
         .then( postId => {
-            console.log(obj);
             PostCategory.add(+obj.data.data.categoryId, postId)
                 .then( statusAddPC => {
                     FileManipulation.copyFiles("./src/img", "./public/assets/img")
